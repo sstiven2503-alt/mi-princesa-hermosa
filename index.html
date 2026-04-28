@@ -5,80 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Valeria ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
 <style>
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #000000, #8B0000);
     color: white;
-    overflow-x: hidden;
+    font-family: Arial;
+    text-align: center;
 }
 
 /* Pantalla inicial */
 #startScreen {
     position: fixed;
-    inset: 0;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #8B0000;
     display:flex;
-    align-items:center;
-    justify-content:center;
     flex-direction:column;
-    background: radial-gradient(circle, #ff0000, #8B0000, #000);
-    z-index: 10;
+    justify-content:center;
+    align-items:center;
 }
 
-#startBtn {
-    padding:14px 26px;
-    border:none;
-    border-radius:30px;
-    background: gold;
-    color:#000;
-    font-weight:bold;
+button {
+    padding:15px 25px;
+    font-size:18px;
     cursor:pointer;
+    border:none;
+    border-radius:20px;
+    background: gold;
 }
 
 /* Contenido */
-.container {
-    max-width: 800px;
+#content {
+    display:none;
+    padding:40px 20px;
+    max-width:800px;
     margin:auto;
-    padding:60px 20px;
-    text-align:center;
-    opacity:0;
-}
-
-.show {
-    animation: fadeIn 1.5s forwards;
-}
-
-p {
-    opacity:0;
-    animation: fadeText 1s forwards;
-}
-
-p:nth-of-type(1){animation-delay:1s}
-p:nth-of-type(2){animation-delay:2s}
-p:nth-of-type(3){animation-delay:3s}
-p:nth-of-type(4){animation-delay:4s}
-p:nth-of-type(5){animation-delay:5s}
-p:nth-of-type(6){animation-delay:6s}
-p:nth-of-type(7){animation-delay:7s}
-p:nth-of-type(8){animation-delay:8s}
-
-@keyframes fadeIn {
-    to { opacity:1; }
-}
-@keyframes fadeText {
-    to { opacity:1; }
+    line-height:1.8;
 }
 
 /* Corazones */
-.hearts {
-    position: fixed;
-    inset:0;
-}
 .heart {
-    position:absolute;
+    position: fixed;
     color: gold;
     animation: fall linear forwards;
 }
@@ -92,12 +62,11 @@ p:nth-of-type(8){animation-delay:8s}
 
 <div id="startScreen">
   <h1>Para Valeria ❤️</h1>
-  <button id="startBtn">Abrir mi corazón 💌</button>
+  <button onclick="iniciar()">Abrir mi corazón 💌</button>
 </div>
 
-<div class="hearts" id="hearts"></div>
+<div id="content">
 
-<div class="container" id="content">
 <h1>Feliz Cumpleaños, Valeria ❤️</h1>
 
 <p>Hoy es un día demasiado especial, porque hoy cumple años la persona que llegó a cambiar mi vida por completo… tú, Valeria.</p>
@@ -106,52 +75,45 @@ p:nth-of-type(8){animation-delay:8s}
 
 <p>Llevamos 8 meses juntos, y hoy justo también cumplimos 9, y aunque para muchos puede parecer poco tiempo, para mí ha sido más que suficiente para entender que no eres cualquier persona en mi vida… eres esa persona que quiero en mi presente, en mi futuro y en cada uno de mis planes.</p>
 
-<p>Me encanta tu forma de ser, esa mezcla tan perfecta entre loquita y tierna que tienes. Me encanta cómo puedes hacerme reír sin esfuerzo, cómo puedes cambiar mi día con una sola palabra, cómo sabes escucharme, entenderme y hacerme sentir el más amado del planeta.</p>
+<p>Me encanta tu forma de ser, esa mezcla tan perfecta entre loquita y tierna que tienes. Me encanta cómo puedes hacerme reír sin esfuerzo, cómo puedes cambiar mi día con una sola palabra, cómo sabes escucharme, entenderme y hacerme sentir el más amado del planeta. Contigo no necesito fingir nada, puedo ser yo, y eso vale demasiado.</p>
 
-<p>No tengo un solo recuerdo favorito contigo, porque cada momento que hemos vivido se ha vuelto especial para mí. Todo contigo es único.</p>
+<p>No tengo un solo recuerdo favorito contigo, porque cada momento que hemos vivido se ha vuelto especial para mí. Desde lo más simple hasta lo más significativo… todo contigo tiene algo que lo hace único.</p>
 
-<p>Valeria, tú eres mi tranquilidad, mi alegría, mi apoyo, mi lugar seguro… mi mundo entero.</p>
+<p>Valeria, tú no eres solo mi novia… eres mi tranquilidad, mi alegría, mi apoyo, mi lugar seguro. Eres mi mundo entero.</p>
 
 <p>Gracias por existir, por quedarte, por elegirme cada día.</p>
 
-<p>Feliz cumpleaños, mi amor… Te amo muchísimo ❤️</p>
+<p>Hoy en tu cumpleaños quiero que sonrías más que nunca. Deseo que todos tus sueños se hagan realidad.</p>
+
+<p>Y si la vida me lo permite, quiero seguir estando a tu lado siempre.</p>
+
+<p>Feliz cumpleaños, mi amor. Te amo muchísimo ❤️</p>
 
 </div>
 
+<!-- Música -->
 <iframe id="player" width="0" height="0" allow="autoplay"></iframe>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+function iniciar() {
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("content").style.display = "block";
 
-  const startBtn = document.getElementById('startBtn');
-  const startScreen = document.getElementById('startScreen');
-  const content = document.getElementById('content');
-  const player = document.getElementById('player');
+    document.getElementById("player").src =
+    "https://www.youtube.com/embed/TX-1dI8t6WM?autoplay=1&loop=1&playlist=TX-1dI8t6WM";
 
-  const VIDEO_ID = "TX-1dI8t6WM";
-
-  startBtn.addEventListener('click', () => {
-    player.src = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&loop=1&playlist=${VIDEO_ID}`;
-
-    startScreen.style.display = 'none';
-    content.classList.add('show');
-    startHearts();
-  });
-
-  function startHearts(){
-    const container = document.getElementById('hearts');
+    // corazones
     setInterval(() => {
-      const h = document.createElement('div');
-      h.className = 'heart';
-      h.textContent = '❤️';
-      h.style.left = Math.random()*100 + 'vw';
-      h.style.animationDuration = (3 + Math.random()*3) + 's';
-      container.appendChild(h);
-      setTimeout(()=> h.remove(), 6000);
-    }, 300);
-  }
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.animationDuration = (3 + Math.random()*3) + "s";
+        document.body.appendChild(heart);
 
-});
+        setTimeout(()=>heart.remove(),6000);
+    }, 300);
+}
 </script>
 
 </body>
